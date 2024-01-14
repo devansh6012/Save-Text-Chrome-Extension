@@ -1,0 +1,22 @@
+body {
+    background: #f1f5f9;
+}
+
+#editButton,
+#saveButton {
+    width: 100px;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#editButton {
+    background: #aaa2f1;
+    margin-bottom: 10px; /* Adjust the margin as needed */
+}
+
+#saveButton {
+    background: #facc15;
+}
