@@ -1,4 +1,5 @@
 const btn = document.querySelector('#saveButton');
+let highlightBtn = document.querySelector('#highlightBtn');
 
 document.querySelector('#editButton').addEventListener('click', async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -19,6 +20,7 @@ btn.addEventListener('click', async () => {
         function: pickText,
     })
 })
+
 
 function pickText(){
     try {
@@ -125,4 +127,25 @@ function saveAsDocFile(text) {
 
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+}
+
+highlightBtn.addEventListener('click', async () => {
+    console.log('clicked');
+    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    console.log(tab.id);
+    chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        function: highlightSelectedText,
+    })
+})
+
+function highlightSelectedText() {
+    const sel = window.getSelection();
+    
+    if (sel.rangeCount > 0) {
+        const range = sel.getRangeAt(0);
+        const span = document.createElement('span');
+        span.style.backgroundColor = 'yellow';
+        range.surroundContents(span);
+    }
 }
