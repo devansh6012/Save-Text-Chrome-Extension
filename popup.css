@@ -3,7 +3,8 @@ body {
 }
 
 #editButton,
-#saveButton {
+#saveButton,
+#highlightBtn {
     width: 100px;
     outline: none;
     border: none;
@@ -14,9 +15,15 @@ body {
 
 #editButton {
     background: #aaa2f1;
-    margin-bottom: 10px; /* Adjust the margin as needed */
+    margin-bottom: 10px;
 }
 
 #saveButton {
     background: #facc15;
+    margin-bottom: 10px;
 }
+
+#highlightBtn {
+    background: #aae89d;
+}
+
